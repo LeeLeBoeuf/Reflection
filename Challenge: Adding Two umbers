@@ -1,0 +1,37 @@
+using System;
+
+namespace attacksequence
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Random attack = new Random();
+
+            int monsterHealth = 10;
+            int playerHealth = 10;
+
+            while (playerHealth > 0)
+            {
+                int playerDamage = attack.Next(1, 11);
+                monsterHealth -= playerDamage;
+                Console.WriteLine($"Player attacks dealing {playerDamage} damage.\t Monster now has {monsterHealth} health.");
+
+                if(monsterHealth <= 0)
+                { break; }
+
+                int monsterDamage = attack.Next(1, 11);
+                playerHealth -= monsterDamage;
+                Console.WriteLine($"Monster attacks dealing {monsterDamage} damage.\t Player now has {playerHealth} health.");
+
+            }
+
+            string winner = playerHealth < 1 ? "Player Defeated!" : "Monster Defeated!";
+            Console.WriteLine($"{winner}");
+
+            Console.ReadLine();
+        }
+
+    }
+}
