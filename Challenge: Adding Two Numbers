@@ -1,0 +1,76 @@
+using System;
+
+
+namespace BasicChallenge03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Welcome();
+
+            double numberOne = NumberOne();
+
+            double numberTwo = NumberTwo();
+
+            double quotient = numberOne / numberTwo;
+
+            Console.WriteLine("The quotient of the number " + numberOne + " divided by " + numberTwo + " is " + quotient + " .");
+            Console.ReadLine();
+
+            string projectName = "ACME";
+
+            string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+
+            Console.WriteLine($@"View English output:\n\t\tc:\Exercises\{projectName}\data.txt");
+            Console.Write($@"{russianMessage}:\n\t\tc:Exercises\{projectName}\ru-RU\data.txt");
+
+        }
+
+
+
+        static void Welcome()
+        {
+            Console.WriteLine("Welcome to the division game");
+            Console.ReadLine();
+            Console.WriteLine("Letters and special characters will not be accepted.");
+            Console.ReadLine();
+
+
+        }
+
+        static int NumberOne()
+        {
+            int numberOne;
+
+            do
+            {
+                Console.WriteLine("Please enter your first number");
+                string userInput = Console.ReadLine();
+                int.TryParse(userInput, out numberOne);
+
+            } while (numberOne <= 0);
+
+            return numberOne;
+        }
+
+
+
+        static int NumberTwo()
+        {
+            int numberTwo;
+
+            do
+            {
+                Console.WriteLine("Please enter your second number");
+                string userInput = Console.ReadLine();
+                int.TryParse(userInput, out numberTwo);
+
+            } while (numberTwo <= 0);
+
+            return numberTwo;
+        }
+
+
+    }
+}
